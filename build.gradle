@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'com.github.sunrise'
-version = '1.0.3-SNAPSHOT'
+version = '1.0.4-SNAPSHOT'
 
 configurations {
     compileOnly {
@@ -27,6 +27,7 @@ publishing {
         starter(MavenPublication) {
             groupId = project.group
             version = project.version
+            artifactId = project.name
             from components.java
         }
     }
@@ -45,6 +46,8 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
+
+tasks.bootJar.enabled = false
 
 test {
     useJUnitPlatform()
