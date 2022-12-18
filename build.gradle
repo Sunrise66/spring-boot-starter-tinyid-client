@@ -10,6 +10,12 @@ plugins {
 group = 'com.github.sunrise'
 version = '1.0.2-SNAPSHOT'
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 repositories {
     mavenLocal()
     maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
@@ -18,14 +24,19 @@ repositories {
 
 publishing {
     publications {
-        MavenJava(MavenPublication) {
+        starter(MavenPublication) {
             groupId = project.group
             version = project.version
-            artifactId = 'spring-boot-starter-tinyid-client'
             from components.java
         }
     }
 }
+
+jar {
+    enabled = true
+    archiveClassifier = ''
+}
+
 
 dependencies {
     annotationProcessor('org.springframework.boot:spring-boot-configuration-processor') { transitive = false }
