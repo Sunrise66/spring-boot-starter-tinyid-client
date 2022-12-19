@@ -5,6 +5,6 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-@ComponentScan("com.github.sunrise.tinyid.client")
+@ComponentScan("com.github.sunrise.tinyid")
 @EnableConfigurationProperties(TinyIdClientConfig::class)
 class TinyIdClientAutoConfiguration
